@@ -1,0 +1,30 @@
+{
+  "name": "tauraro",
+  "displayName": "tauraro",
+  "publisher": "YuseeHabibu",
+  "description": "Syntax highlighting and language support for the Tauraro programming language.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.105.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "tauraro",
+      "aliases": ["tauraro", "tauraro"],
+      "extensions": [".tr", ".tau", ".tauraro"],
+      "configuration": "./language-configuration.json",
+      "icon": {
+        "light": "./tauraro-img.jpg",
+        "dark": "./tauraro-img.jpg"
+      }
+    }],
+    "grammars": [{
+      "language": "tauraro",
+      "scopeName": "source.tauraro",
+      "path": "./syntaxes/tauraro.tmLanguage.json"
+    }]
+  }
+}

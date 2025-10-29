@@ -1,0 +1,324 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "tauraro",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#builtin-functions"
+		},
+		{
+			"include": "#builtin-types"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#decorators"
+		},
+		{
+			"include": "#storage-modifiers"
+		},
+		{
+			"include": "#support-type"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.control.tauraro",
+					"match": "\\b(if|idan|elif|kokuma idan|else|akasi|for|duk|while|yayinda|break|tsaya|continue|cigaba|return|maido|pass|wuce|yield|bayar|match|daidaita|case|yanayi|with|tare|try|gwada|except|catch|kama|finally|karshe|raise|jefa|throw|assert|tabbatar|del|share|global|duniya|nonlocal|ba_gida|import|shigoda|from|daga|as|dasunan|extern|waje|export|fitar|async|marasa_jira|await|jira|lambda|dan_aiki|in|acikin|is|shine)\\b"
+				},
+				{
+					"name": "keyword.function.tauraro",
+					"match": "\\b(func|def|aiki|class|iri)\\b"
+				}
+			]
+		},
+		"builtin-functions": {
+			"patterns": [
+				{
+					"name": "support.function.builtin.tauraro",
+					"match": "\\b(print|len|str|int|float|bool|list|tuple|dict|set|range|input|abs|min|max|sum|round|pow|divmod|enumerate|zip|map|filter|sorted|reversed|any|all|chr|ord|hex|bin|oct|isinstance|type|callable|hasattr|getattr|setattr|delattr|issubclass|super|staticmethod|classmethod|property|dataclass|Enum|open|iter|next|id|hash|help|dir|vars|locals|globals|eval|exec|compile|repr|ascii|format)\\b"
+				}
+			]
+		},
+		"builtin-types": {
+			"patterns": [
+				{
+					"name": "support.type.builtin.tauraro",
+					"match": "\\b(Exception|ValueError|TypeError|RuntimeError)\\b"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.language.tauraro",
+					"match": "\\b(True|False|None|true|false|none|null|babu|gaskiyane|karyane)\\b"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.docstring.tauraro",
+					"begin": "\"\"\"",
+					"end": "\"\"\"",
+					"patterns": [
+						{
+							"include": "#escaped-characters"
+						}
+					]
+				},
+				{
+					"name": "string.quoted.docstring.tauraro",
+					"begin": "'''",
+					"end": "'''",
+					"patterns": [
+						{
+							"include": "#escaped-characters"
+						}
+					]
+				},
+				{
+					"name": "string.interpolated.f-string.tauraro",
+					"begin": "f\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"include": "#escaped-characters"
+						},
+						{
+							"include": "#interpolation"
+						}
+					]
+				},
+				{
+					"name": "string.interpolated.f-string.tauraro",
+					"begin": "f'",
+					"end": "'",
+					"patterns": [
+						{
+							"include": "#escaped-characters"
+						},
+						{
+							"include": "#interpolation"
+						}
+					]
+				},
+				{
+					"name": "string.quoted.raw-string.tauraro",
+					"begin": "r\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.tauraro",
+							"match": "\\\\."
+						}
+					]
+				},
+				{
+					"name": "string.quoted.raw-string.tauraro",
+					"begin": "r'",
+					"end": "'",
+					"patterns": [
+						{
+							"name": "constant.character.escape.tauraro",
+							"match": "\\\\."
+						}
+					]
+				},
+				{
+					"name": "string.quoted.double.tauraro",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"include": "#escaped-characters"
+						}
+					]
+				},
+				{
+					"name": "string.quoted.single.tauraro",
+					"begin": "'",
+					"end": "'",
+					"patterns": [
+						{
+							"include": "#escaped-characters"
+						}
+					]
+				},
+				{
+					"name": "string.quoted.bytes.tauraro",
+					"begin": "b\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"include": "#escaped-characters"
+						}
+					]
+				},
+				{
+					"name": "string.quoted.bytes.tauraro",
+					"begin": "b'",
+					"end": "'",
+					"patterns": [
+						{
+							"include": "#escaped-characters"
+						}
+					]
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.number-sign.tauraro",
+					"match": "#.*$"
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.float.tauraro",
+					"match": "\\b[0-9]+\\.[0-9]*([eE][+-]?[0-9]+)?\\b"
+				},
+				{
+					"name": "constant.numeric.float.tauraro",
+					"match": "\\b[0-9]+[eE][+-]?[0-9]+\\b"
+				},
+				{
+					"name": "constant.numeric.binary.tauraro",
+					"match": "\\b0[bB][01]+\\b"
+				},
+				{
+					"name": "constant.numeric.octal.tauraro",
+					"match": "\\b0[oO][0-7]+\\b"
+				},
+				{
+					"name": "constant.numeric.hex.tauraro",
+					"match": "\\b0[xX][0-9a-fA-F]+\\b"
+				},
+				{
+					"name": "constant.numeric.integer.tauraro",
+					"match": "\\b[0-9]+\\b"
+				}
+			]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.arithmetic.tauraro",
+					"match": "(\\+|\\-|\\*\\*?|//?|%|@)"
+				},
+				{
+					"name": "keyword.operator.assignment.tauraro",
+					"match": "(=|\\+=|\\-=|\\*=|/=|//=|%=|\\*\\*=|:=|<-|~>)"
+				},
+				{
+					"name": "keyword.operator.comparison.tauraro",
+					"match": "(==|!=|<=|>=|<|>|<>)"
+				},
+				{
+					"name": "keyword.operator.logical.tauraro",
+					"match": "\\b(and|dakuma|or|ko|not|ba)\\b"
+				},
+				{
+					"name": "keyword.operator.bitwise.tauraro",
+					"match": "([&|^~]|<<|>>)"
+				},
+				{
+					"name": "keyword.operator.other.tauraro",
+					"match": "(\\.|\\.\\.|\\?\\?|\\!\\!|->|=>|\\$)"
+				}
+			]
+		},
+		"decorators": {
+			"patterns": [
+				{
+					"name": "entity.name.function.decorator.tauraro",
+					"match": "@\\w+(?:\\.\\w+)*"
+				},
+				{
+					"name": "punctuation.definition.decorator.tauraro",
+					"match": "@"
+				}
+			]
+		},
+		"storage-modifiers": {
+			"patterns": [
+				{
+					"name": "storage.modifier.tauraro",
+					"match": "\\b(static|const|final|abstract|virtual|override|public|private|protected|internal)\\b"
+				}
+			]
+		},
+		"support-type": {
+			"patterns": [
+				{
+					"name": "support.type.python.tauraro",
+					"match": "\\b(object|str|bytes|int|float|complex|bool|list|tuple|dict|set|frozenset|bytearray)\\b"
+				}
+			]
+		},
+		"escaped-characters": {
+			"patterns": [
+				{
+					"name": "constant.character.escape.tauraro",
+					"match": "\\\\[,\\'\"abfnrtv]"
+				},
+				{
+					"name": "constant.character.escape.tauraro",
+					"match": "\\\\[0-7]{1,3}"
+				},
+				{
+					"name": "constant.character.escape.tauraro",
+					"match": "\\\\x[0-9a-fA-F]{2}"
+				},
+				{
+					"name": "constant.character.escape.tauraro",
+					"match": "\\\\u[0-9a-fA-F]{4}"
+				},
+				{
+					"name": "constant.character.escape.tauraro",
+					"match": "\\\\U[0-9a-fA-F]{8}"
+				},
+				{
+					"name": "constant.character.escape.tauraro",
+					"match": "\\\\N\\{[a-zA-Z ]+\\}"
+				}
+			]
+		},
+		"interpolation": {
+			"patterns": [
+				{
+					"name": "meta.embedded.expression.tauraro",
+					"begin": "\\{",
+					"end": "\\}",
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				}
+			]
+		}
+	},
+	"scopeName": "source.tauraro"
+}
