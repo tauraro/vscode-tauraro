@@ -3,9 +3,9 @@
   "displayName": "tauraro",
   "publisher": "YuseeHabibu",
   "description": "Syntax highlighting and language support for the Tauraro programming language.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
-    "vscode": "^1.105.0"
+    "vscode": "^1.23.0"
   },
   "categories": [
     "Programming Languages"
